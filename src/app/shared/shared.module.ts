@@ -7,7 +7,7 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 @NgModule({
   imports:[
     CommonModule,
-    PrimeNgModule
+    PrimeNgModule,
   ],
   declarations:[
     MenuComponent

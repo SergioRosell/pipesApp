@@ -1,0 +1,69 @@
+
+<p-panel header="Pipes Personalizados" class="p-2">
+  <p>
+    Pipes personalizados - creados por {{ 'nosotros' | toggleCase: isUpperCase }}.
+  </p>
+</p-panel>
+
+
+<p-toolbar>
+
+  <div class="p-toolbar-group-start">
+
+    <p-button
+      label="ToggleCase"
+      icon="pi pi-search"
+      (onClick)="toggleUpperCase()"
+    ></p-button>
+
+  </div>
+
+  <div class="p-toolbar-group-end">
+
+      <p-button
+        label="Por nombre"
+        icon="pi pi-sort"
+        styleClass="p-button-success mr-2"
+        (onClick)="changeOrder('name')"
+      ></p-button>
+
+       <p-button
+        label="Por volar"
+        icon="pi pi-sort"
+        styleClass="p-button-help mr-2"
+        (onClick)="changeOrder('canFly')"
+       ></p-button>
+
+       <p-button
+        label="Por color"
+        icon="pi pi-sort"
+        styleClass="p-button-danger mr-2"
+        (onClick)="changeOrder('color')"
+       ></p-button>
+
+  </div>
+</p-toolbar>
+
+
+<div class="grid">
+  <div class="col mr-2">
+    <p-panel header="Heroes">
+      <p-table [value]="heroes | sortBy:orderBy" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Can Fly</th>
+                <th>Color</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.canFly | canFly }}</td>
+                <td>{{ product.color }}</td>
+            </tr>
+        </ng-template>
+      </p-table>
+  </p-panel>
+  </div>
+</div>
